@@ -22,7 +22,7 @@ const createTareas = asyncHandler( async (req,res)=> {
 })
 
 const updateTareas = asyncHandler( async (req,res)=> {
-    const tarea = await Tarea.FindById(req.params.id)
+    const tarea = await Tarea.findById(req.params.id)
     if (!tarea){
         res.status(404)
         throw new Error("Tarea no existe")
@@ -41,7 +41,7 @@ const updateTareas = asyncHandler( async (req,res)=> {
 
 const deleteTareas = asyncHandler( async (req,res)=> {
 
-    const tarea = await Tarea.FindById(req.params.id)
+    const tarea = await Tarea.findById(req.params.id)
     if (!tarea){
         res.status(404)
         throw new Error("Tarea no existe")
