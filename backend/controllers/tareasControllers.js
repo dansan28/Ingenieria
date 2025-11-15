@@ -53,7 +53,7 @@ const deleteTareas = asyncHandler( async (req,res)=> {
         throw new Error('Usuario no autorizado')
     }else{
         await tarea.deleteOne()
-        res.status(200).json({id: CanvasRenderingContext2D.params.id})
+        res.status(200).json({id: req.params.id})
     }
 
 
