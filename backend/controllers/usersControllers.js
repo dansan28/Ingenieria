@@ -60,7 +60,8 @@ const register = asyncHandler(async(req, res) => {
             res.status(201).json({
                 _id: user.id,
                 nombre: user.nombre,
-                email: user.email
+                email: user.email,
+                password: user.password
             })
         } else {
             res.status(400)
