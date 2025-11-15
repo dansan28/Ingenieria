@@ -80,6 +80,6 @@ const generarToken = (id) => {
     })
 }
 
-modelNames.exports = {
+module.exports = {
     login, register, data
 }

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const {login, register, data} = require('../controllers/users/Controllers')
+const {login, register, data} = require('../controllers/usersControllers')
 const { protect } = require('../middleware/authMiddleware')
 
 //endpoints publicos
