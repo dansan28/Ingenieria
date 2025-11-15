@@ -1,7 +1,7 @@
 const bcrypt = require ('bcryptjs')
 const jwt = require('jsonwebtoken')
 const asyncHandler = require('express-async-handler')
-const user = require('../models/userModel')
+const User = require('../models/userModel')
 
 
 const login = asyncHandler( async(req, res) => {
@@ -11,7 +11,7 @@ const login = asyncHandler( async(req, res) => {
     const {email, password} = req.body
 
     //verificar si el uusario que se intenta logear existe
-    const User = await User.findOne({email})
+    const user = await User.findOne({email})
 
     if (user &&(await bcrypt.compare(password, user.password))){
         res.status(200).json({
@@ -71,7 +71,7 @@ const register = asyncHandler(async(req, res) => {
 })
 
 const data = (req, res) => {
-    res.status(200).json({message: 'data'})
+    res.status(200).json(req.user)
 }
 
 const generarToken = (id) => {
