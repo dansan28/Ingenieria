@@ -11,7 +11,7 @@ const login = asyncHandler( async(req, res) => {
     const {email, password} = req.body
 
     //verificar si el uusario que se intenta logear existe
-    const user = await User.findOne({email})
+    const User = await User.findOne({email})
 
     if (user &&(await bcrypt.compare(password, user.password))){
         res.status(200).json({
@@ -39,7 +39,7 @@ const register = asyncHandler(async(req, res) => {
     }
 
     //Verificar si existe ese usuario en la base de datos
-    const userExiste = await user.findOne({email})
+    const userExiste = await User.findOne({email})
 
     if (userExiste) {
         res.status(400)
