@@ -13,7 +13,7 @@ const protect = async(req, res, next) =>{
                     //Verifico el token con la firma del secreto
                     const decoded = jwt.verify(token,process.env.JWT_SECRET)
                     //busco el usuario con el id del token
-                    req.user = await User.findById(decoded).select('-password')
+                    req.user = await User.findById(decoded.id).select('-password')
 
                     next()
 
