@@ -7,7 +7,7 @@ router.get('/', protect, getTareas)
 router.post('/', protect, createTareas)
 
 router.put('/:id', protect, updateTareas)
-router.put('/:id', protect, deleteTareas)
+router.delete('/:id', protect, deleteTareas)
 
 module.exports = router
 
